@@ -1,0 +1,20 @@
+parameters:
+    my_service.param: value
+services:
+    api_service:
+        class: AppBundle\Service\ApiService
+#        arguments: ["%my_service.param%"]
+    app.index_controller:
+        class: AppBundle\Controller\IndexController
+        arguments: ["@api_service"]
+    newsletter_manager:
+        class: MetaBundle\Service\NewsletterService
+        arguments: ["@api_service"]
+#        to make injecting optional
+#        arguments: ["@?api_service"]
+#        injecting dependency by setter
+#        calls:
+#        - [setMailer, ["@my_mailer"]]
+#        arguments: ["@another_service_name", "plain_value", "%my_service.param%"]
+#        arguments: ["@=service('mailer_configuration').getMailerMethod()"]
+#        arguments: ["@=container.hasParameter('some_param') ? parameter('some_param') : 'default_value'"]
