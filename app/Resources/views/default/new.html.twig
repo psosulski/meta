@@ -1,0 +1,14 @@
+{#{{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}#}
+{{ form_start(form, {'action': path('target_route'), 'method': 'GET'})) }}
+    <div>
+        {{ form_label(form.name, 'Form name') }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {'attr':{'class':'tak_field'}}) }}
+    </div>
+    {{ form_errors(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.save) }}
+    {{ form.vars.value.name }}
+    {{ form.name.vars.full_name }}
+{{ form_end(form) }}
+

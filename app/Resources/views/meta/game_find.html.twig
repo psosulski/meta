@@ -1,0 +1,7 @@
+{% include "meta/flash.html.twig" %}
+
+{% block body %}
+    {{ form_start(form, {'attr':{'class':'tak_field'}}) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

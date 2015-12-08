@@ -41,20 +41,20 @@ class IndexController extends Controller
         //type => params
         $availableParams = array(
             //find/game
-//            'game' => array(
-//                'platform' => '%s',
-//                'title' => '%s'
-//            ),
+            'game' => array(
+                'platform' => '%s',
+                'title' => '%s'
+            ),
             //game-list
             'game-list' => array(
                 'list_type' => '%s', //coming-soon, new-releases, all
-//                'platform' => '%s',
+                'platform' => '%s',
                 'order_by' => '%s', //date,metascore,name,userscore, def date
-                'page' => '%s'      //page number
+                'page' => '%s'      //number, totalpages,next page
             ),
             //search/game
             'search-games' => array(
-                'max_pages' => '%d', //1-5 def 1
+                'max_pages' => '%d',
                 'platform' => '%s',
                 'title' => '%s',
                 'year_from' => '%s',

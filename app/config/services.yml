@@ -1,12 +1,21 @@
 parameters:
     my_service.param: value
 services:
+    app.form.type.search:
+        class: AppBundle\Form\Type\SearchType
+        arguments: ["@api_service"]
+        tags:
+          - {name: form.type}
     api_service:
         class: AppBundle\Service\ApiService
+        arguments: ["@doctrine.orm.entity_manager"]
 #        arguments: ["%my_service.param%"]
     app.index_controller:
         class: AppBundle\Controller\IndexController
         arguments: ["@api_service"]
+        calls:
+#              - [setFormFactory,['@form.factory']]
+            - [setContainer,['@service_container']]
     newsletter_manager:
         class: MetaBundle\Service\NewsletterService
         arguments: ["@api_service"]
